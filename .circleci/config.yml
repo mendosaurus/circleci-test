@@ -67,7 +67,11 @@ jobs:
 workflows:
   pull-request:
     jobs:
-      - setup
+      - setup:
+          filters:
+            branches:
+              only:
+                - master
       - lint:
           requires:
             - setup
